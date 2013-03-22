@@ -10,18 +10,17 @@ import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 
-import com.github.minetonight.metrosystemgenerator.MetroSystemPopulator;
-
 public class DesertChunkGenerator extends ChunkGenerator {
 
 	@Override
     public List<BlockPopulator> getDefaultPopulators(World world) {
-        return Arrays.asList((BlockPopulator)new MetroSystemPopulator());
+        return Arrays.asList();
     }
 	
 	/** This needs to be set to return true to override minecraft's default behaviour*/
     @Override
     public boolean canSpawn(World world, int x, int z) {
+        //TODO return getChunkType(x, y) != LAVA;
         return true;
     }
     
@@ -39,7 +38,7 @@ public class DesertChunkGenerator extends ChunkGenerator {
         return result[y >> 4][((y & 0xF) << 8) | (z << 4) | x];
     }
     
-    public static final double RADUIS = 15.0d;
+    public static final double RADUIS = 47.0d;
 	
     
     @Override
@@ -125,7 +124,7 @@ public class DesertChunkGenerator extends ChunkGenerator {
 //					System.out.println("---------------");
 				}
 				else {
-					y = (int) (50 - Math.sqrt(eq - border));
+					y = (int) (50 - Math.sqrt(eq - border)); // TODO on large dist - steep edge???
 					y -= random.nextInt(2);
 				}
 

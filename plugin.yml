@@ -5,4 +5,4 @@ website: http://www.minecraftskinsserver.wordpress.com
 author: minetonight
 description: Custom world generator for Bukkit. Creates desert island.
 load: startup
-depend: [MetroSystemGenerator]
+depends: [MineTonightUtils]
